@@ -58,3 +58,4 @@ If `MONGODB_URI` is unset, the server runs without a database connection.
 
 # Hello-Cursor-World
 This is my first try at building an application using Cursor.
+This is my first comment
