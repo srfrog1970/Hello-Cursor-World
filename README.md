@@ -4,8 +4,15 @@ A minimal "Hello World" MERN stack project.
 
 ## Structure
 
-- `server` — Express backend with `/api/hello` endpoint. Optional MongoDB via `MONGODB_URI`.
-- `client` — React (Vite) frontend that fetches from `/api/hello` and displays the message.
+- `server` — Express backend with multiple API endpoints. Optional MongoDB via `MONGODB_URI`.
+- `client` — React (Vite) frontend that interacts with various backend endpoints.
+
+## API Endpoints
+
+- `GET /api/hello` — Returns a welcome message
+- `GET /api/time` — Returns current server time
+- `GET /api/counter` — Returns current counter value
+- `POST /api/counter` — Increments and returns counter value
 
 ## Prerequisites
 

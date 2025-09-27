@@ -28,12 +28,40 @@ async function connectMongoIfConfigured() {
   }
 }
 
+// In-memory counter (in a real app, you'd use a database)
+let counter = 0;
+
 app.get('/api/hello', (req, res) => {
   res.json({ message: 'Hello Cursor World from the MERN backend!' });
 });
 
+app.get('/api/time', (req, res) => {
+  const now = new Date();
+  res.json({ 
+    time: now.toLocaleString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      timeZoneName: 'short'
+    })
+  });
+});
+
+app.post('/api/counter', (req, res) => {
+  counter++;
+  res.json({ count: counter });
+});
+
+app.get('/api/counter', (req, res) => {
+  res.json({ count: counter });
+});
+
 app.get('/', (req, res) => {
-  res.send('Server is running. Try GET /api/hello');
+  res.send('Server is running. Try GET /api/hello, /api/time, or POST /api/counter');
 });
 
 app.listen(port, async () => {
